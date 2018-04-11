@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+    <p>js清除字符串空格</p>
+    <script type="text/javascript">
+        // 正则
+        var strOne=" we are friend ";
+        console.log(strOne.replace(/\s/g,''))
+
+
+        //string.trim()  局限性：无法去除中间的空格
+        console.log(strOne.trim())
+
+        //使用jquery,$.trim(str)方法  局限性：无法去除中间的空格
+        console.log($.trim(strOne))
+
+        //转换成数组
+        // var strArr=strOne.split(' ');  //(5) ["", "we", "are", "friend", ""]
+        var strArr=strOne.split('');
+        var newArr=[];
+        strArr.map(function(item){
+            if(item!=' '){
+                newArr.push(item)
+            }
+        })
+        console.log(newArr.join(''))
+
+    </script>
+</body>
+</html>

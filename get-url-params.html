@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <p>你如何获取浏览器URL中查询字符串中的参数？http://www.runoob.com/jquery/misc-trim.html?channelid=12333&name=xiaoming&age=23</p>
+<script type="text/javascript">
+
+    function getUrlParams(url){
+
+        var urlArr=url.slice(url.lastIndexOf('?')+1).split('&');
+
+        var urlObj={}
+        urlArr.map(function(item,i){
+            var nameArr=item.split('=');
+            // console.log(nameArr)
+            urlObj[nameArr[0]]=nameArr[1]
+        })
+        return urlObj;
+        // return {
+
+        // }
+    }
+
+    var str='http://www.runoob.com/jquery/misc-trim.html?channelid=12333&name=xiaoming&age=23'
+    console.log(getUrlParams(str))
+</script>
+</body>
+</html>
