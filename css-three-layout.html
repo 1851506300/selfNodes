@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>三栏布局</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        p{
+            margin:15px 0;
+        }
+        .float-container{
+            clear: both;
+            width: 100%;
+        }
+        .left{
+            float:left;
+            width:300px;
+            height:50px;
+            background: red;
+        }
+        .right{
+            float: right;
+            width:300px;
+            height:50px;
+            background: green;
+        }
+        .center{
+            height:50px;
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h3>左右固定，中间自适应的三栏布局</h3>
+
+    <p>float解决方案</p>
+
+    <section class="float-container">
+        <section class="left">三栏布局左侧，宽度300px</section>
+        <section class="right">三栏布局右侧，宽度300px</section>
+        <section class="center">
+            <p>三栏布局中间，宽度自适应（注意书写顺序，中间的元素写在最后，两侧的左右浮动，中间不浮动）</p>
+        </section>
+
+    </section>
+
+    <p>css3中计算属性的解决方案</p>
+    <section class="calc-container">
+        <style>
+            .calc-left{
+                width:300px;
+                background: red;
+                height: 50px;
+                float:left;
+            }
+            .calc-center{
+                width:calc(100% - 600px);  /*注意书写格式： 计算符号前后存在空格 */
+                /* width: calc(100% - 600px); */
+                /* margin-right: calc(5px*3 /2); */
+                background:yellow;
+                height: 50px;
+                float:left;
+            }
+            .calc-right{
+                width:300px;
+                background: green;
+                height: 50px;
+                float:left;
+            }
+        </style>
+
+        <section class="calc-left"></section>
+        <section class="calc-center">注意css3中的calc()函数的书写格式： 计算符号前后存在空格</section>
+        <section class="calc-right">23455</section>
+
+    </section>
+
+    <p>定位确定三栏布局</p>
+    <style>
+            .position-container{
+                position: relative;
+                height: 50px;
+            }
+
+            .position-left{
+                position:absolute;
+                height: 50px;
+                width:300px;
+                left:0px;
+                background:red;
+            }
+
+            .position-center{
+                position:absolute;
+                height: 50px;
+                left:300px;
+                right:300px;
+                background:yellow;
+                
+            }
+            
+            .position-right{
+                position:absolute;
+                height: 50px;
+                width:300px;
+                right:0px;
+                background:green;
+                
+            }
+     </style>
+
+    <section class="position-container">
+
+       
+        <section class="position-left">左侧</section>
+        <section class="position-center">中间(最重要是：中间元素的定位写成right：0, left:0 )</section>
+        <section class="position-right">右侧</section>
+        <section>
+            <span>突然想起了，固定宽度盒子，在父元素中垂直水平居中的几种方法，有时间整理一下</span>
+        </section>
+    </section>
+
+    <p>弹性盒子</p>
+    <style>
+        .flex-container{
+            display:flex;
+            
+        }
+        .flex-left{
+            width:300px;
+            background:red;
+            height: 50px;
+        }   
+        .flex-center{
+            background:yellow;
+            height: 50px;
+            flex:1;
+        }
+        .flex-right{
+            width:300px;
+            background:green;
+            height: 50px;
+    
+        }
+    </style>
+    <section class="flex-container">
+        <section class="flex-left"></section>
+        <section class="flex-center"></section>
+        <section class="flex-right"></section>
+    </section>
+
+
+
+    <p>表格布局</p>
+    <style>
+         .table-container{
+             display: table;
+             width:100%;
+         }       
+         .table-container>section{
+             display: table-cell;
+             height: 50px;
+         }
+         .table-left{
+             width:300px;
+             background: red;
+         }
+         .table-center{
+            background: yellow;
+             
+         }
+         .table-right{
+             background:green;
+             width: 300px;
+         }
+    </style>
+    <section class="table-container">
+        <section class="table-left"></section>
+        <section class="table-center"></section>
+        <section class="table-right"></section>
+    </section>
+
+    <p>网格布局</p>
+
+    <style>
+        .grid-container{
+            display: grid;
+            width:100%;
+            grid-template-rows:50px;
+            grid-template-columns:300px auto 300px;
+        }
+        .grid-left{
+            background: red;
+        }
+        .grid-center{
+            background: yellow;
+        }
+        .grid-right{
+            background: green;
+        }
+
+    </style>
+
+    <section class="grid-container">
+
+        <section class="grid-left"></section>
+        <section class="grid-center"></section>
+        <section class="grid-right"></section>
+    </section>
+</body>
+</html>
